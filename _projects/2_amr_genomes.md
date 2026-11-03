@@ -3,11 +3,13 @@ layout: page
 title: Predicting antibiotic resistance from genomes
 description: 3rd of 39 in the INF8245 Kaggle competition, with a calibrated gradient boosting ensemble
 importance: 2
-category: research
+category: /ML
 related_publications: false
 ---
 
-**Kaggle competition, INF8245 (Fall 2025), team project. Ranked 3rd of 39.**
+- **Context:** Kaggle competition, INF8245 (Fall 2025), team project
+- **Stack:** XGBoost, CatBoost, LightGBM
+- **Result:** 3rd of 39
 
 Antimicrobial resistance is a major challenge in modern medicine, and predicting it directly from a genome is a step toward faster diagnostics. The task: given one *E. coli* genome, predict whether it is resistant to the antibiotic Cefepime. The metric is macro F1.
 
@@ -29,4 +31,4 @@ An out-of-fold, calibrated mixture-of-experts ensemble of gradient boosting mode
 
 Team: Adrien Saouma, Mateo Mangialomini, Maxime Tran.
 
-[Code](https://github.com/mateo-496/kaggle_competition_INF8245AE) · [Report (PDF)](https://github.com/mateo-496/kaggle_competition_INF8245AE/blob/main/report.pdf)
+[Code](https://github.com/mateo-496/ecoli-amr-kaggle) · [Report (PDF)](https://github.com/mateo-496/ecoli-amr-kaggle/blob/main/report.pdf)

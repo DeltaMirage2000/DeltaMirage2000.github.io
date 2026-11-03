@@ -3,11 +3,14 @@ layout: page
 title: Multi-teacher distillation for edge audio
 description: Confidence-weighted knowledge distillation for sound event detection on a Raspberry Pi
 importance: 1
-category: research
+category: /research
 related_publications: false
 ---
 
-**Master's thesis, Polytechnique Montréal × Atelier7Hz, Jan 2026 to present.**
+- **Context:** Master's thesis, Polytechnique Montréal × Atelier7Hz
+- **Focus:** Sound event detection on edge devices
+- **Status:** First-author paper in preparation
+- **Stack:** PyTorch, Hydra, Ray Tune/Optuna, ONNX
 
 Sound event detection models are accurate but too large for low-power devices. This project compresses an ensemble of strong audio models into a small student that can run on a Raspberry Pi 4B.
 
