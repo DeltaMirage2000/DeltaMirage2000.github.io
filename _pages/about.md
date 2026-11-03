@@ -2,33 +2,34 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: M.Sc.A. candidate in ML/AI at <a href="https://www.polymtl.ca/">Polytechnique Montréal</a> × Atelier7Hz
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profilepicture.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Montréal, QC, Canada</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: false
 
 latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I'm a Master's student in ML/AI at Polytechnique Montréal, in a double degree with Arts et Métiers ParisTech (mechanical, electrical and industrial engineering).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research, done with Atelier7Hz, is about making audio models small and fast enough to run on edge devices: multi-teacher knowledge distillation for sound event detection, urban acoustic scene classification and aircraft flyover detection. I like owning the whole path from model to deployment, from custom C++/CUDA kernels to pruned and INT8-quantized networks running on a Raspberry Pi.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Before ML, I trained as a mechanical engineer. I've machined, cast and welded parts, run CFD, and built a 3D-printed compressor prototype and parts for an electric racing boat. That hands-on background shapes how I approach ML systems: measure first, then optimize.
+
+I'm looking for an AI/ML internship starting in summer 2027. I speak French (native), Italian (C2), English (C1) and German (B1/B2).
+
+<style>
+  .social .contact-icons { font-size: 1.75rem !important; }
+  .social .contact-note { font-size: 0.85rem; }
+</style>

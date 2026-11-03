@@ -1,0 +1,151 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage[top=0.45in, bottom=0.45in, left=0.55in, right=0.55in]{geometry}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\setlength{\tabcolsep}{0in}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
+\titlespacing*{\section}{0pt}{4pt}{6pt}
+ 
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+  \textbf{\Large Mateo Mangialomini} &
+    \href{mailto:mateo496@protonmail.com}{mateo496 [at] protonmail [.] com} \\
+  {\large M.Sc.A. Candidate in ML/AI --- Polytechnique Montréal} &
+    Montréal, QC, Canada \\
+  \multicolumn{2}{@{}r@{}}{%
+    \href{https://github.com/mateo-496}{github.com/mateo-496} $\,|\,$
+    \href{https://www.linkedin.com/in/mateomangialomini}{linkedin.com/in/mateomangialomini}} \\
+\end{tabular*}
+\vspace{4pt}
+
+\newcommand{\entry}[4]{%
+  \noindent
+  \begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2 \\[-1pt]
+    \textit{\small #3} & \textit{\small #4} \\
+  \end{tabular*}\par}
+\newenvironment{bullets}
+  {\begin{itemize}[leftmargin=12pt, itemsep=1pt, topsep=0pt, parsep=0pt, label={--}]\small}
+  {\end{itemize}}
+
+
+\section{Research Experience}
+\entry{Graduate Researcher --- Polytechnique Montréal $\times$ Atelier7Hz}{Montréal, Canada}
+  {Multi-teacher knowledge distillation for edge sound event detection}{Jan 2026 -- Present}
+\begin{bullets}
+\item Built a teacher ensemble surpassing state-of-the-art on FSD50K (\textbf{+0.4 pts mAP}) with \textbf{93.7\% fewer parameters}.
+\item Authored a novel confidence-weighted multi-teacher KD method: distilled BEATs, PaSST, AST and MobileNetV3 into an EfficientAT student reaching \textbf{67.05 mAP}, above every teacher (all $<$\textbf{65.3}). First-author paper in preparation.
+\item Mapped the accuracy--compute Pareto front across pruning, INT8 quantization, and combined schemes to select operating points for Raspberry Pi 4B deployment.
+\item Wrote custom C++/CUDA kernels for mel-spectrogram computation with shared-memory 2D tiling, achieving a \textbf{2$\times$ speedup} over torchaudio on an NVIDIA RTX 5090 during training.
+\item Rewrote the inherited training pipeline (PyTorch, Hydra, Ray Tune/Optuna, ONNX) for scene classification and flyover detection, removing unnecessary CPU--GPU synchronization calls to speed up training by \textbf{13\%}.
+\end{bullets}
+\vspace{3pt}
+
+\section{Education}
+
+\entry{M.Sc.A. in ML/AI --- Polytechnique Montréal}{Montréal, Canada}
+  {Thesis: Multi-teacher knowledge distillation for edge audio classification}{Sep 2025 -- Apr 2027}
+\begin{bullets}
+\item Coursework: Deep Learning (A.~Courville, Mila) A*, Probabilistic ML (C.~Pal) A*, Machine Learning A.
+\end{bullets}
+\vspace{3pt}
+
+\entry{Arts et Métiers ParisTech --- Top French Engineering School --- Class Rank: 2 /1149}{France}
+  {Mechanical, Electrical \& Industrial Engineering --- Double degree with Polytechnique Montréal}{2023 -- 2027}
+\begin{bullets}
+  \item Coursework: Solid Mechanics, Fluid Mechanics, Vibration \& Dynamics, Computational Engineering, AI; hands-on machining, casting and welding.
+\end{bullets}
+\vspace{3pt}
+
+\entry{CPGE (Preparatory Classes) --- Lycée Masséna}{Nice, France}
+  {Intensive mathematics \& physics for Grandes Écoles entrance exams}{2021 -- 2023}
+\vspace{3pt}
+
+\entry{Baccalauréat, High Honors --- Lycée International de Valbonne (CIV)}{Valbonne, France}
+  {Mathematics \& Physics --- International curriculum in Italian}{2021}
+\vspace{3pt}
+
+\section{Leadership \& Involvement}
+
+\entry{PolyAI --- Competitions Department (Gestionnaire)}{Montréal, Canada}
+  {Polytechnique Montréal AI student association}{Mar 2026 -- Present}
+\begin{bullets}
+  \item Coordinate ML competition training and compete in hackathons; event staff at CodeML, Polytechnique's ML hackathon.
+\end{bullets}
+
+\section{Professional Experience}
+
+\entry{Airbus Helicopters --- Prototype Department}{Marignane, France}
+  {Intern --- Shop Floor}{Jun -- Jul 2024}
+% \begin{bullets}
+%   \item Performed maintenance and flight-preparation procedures on prototype helicopters (H160) under aerospace quality and safety standards.
+% \end{bullets}
+\vspace{3pt}
+
+\entry{MANE --- Flavor \& Fragrance Manufacturer}{Le Bar-sur-Loup, France}
+  {Technical Maintenance Worker}{Jul -- Aug 2023}
+\vspace{3pt}
+% \begin{bullets}
+%   \item Diagnosed faults and overhauled industrial pumps and motors, performing on-site and workshop repairs to minimize production downtime.
+% \end{bullets}
+\section{Projects}
+
+\entry{ESC-50 Environmental Sound Classification --- \href{https://mateo496-esc50-model.hf.space/}{live demo}}{}
+  {PyTorch, librosa, FastAPI, Docker, HuggingFace Spaces}{2026}
+\begin{bullets}
+\item End-to-end deep learning project, self-taught: extended the Salamon \& Bello (2017) CNN from 10 to 50 classes maintaining accuracy and deployed it as a FastAPI + Docker endpoint with a real-time web UI.
+\end{bullets}
+\vspace{3pt}
+
+\entry{Kaggle Competition --- 3rd / 39}{}
+  {XGBoost, CatBoost, LightGBM}{2025}
+\begin{bullets}
+  \item Predicted E.~coli antibiotic resistance from 1M-dimensional sparse genomic features under class imbalance and phylogenetic distribution shift, using an out-of-fold calibrated mixture-of-experts gradient boosting ensemble.
+\end{bullets}
+\vspace{3pt}
+
+\entry{Hydrogadz --- Monaco Energy Boat Challenge 2025}{Monaco}
+  {Student association --- electric boat}{2025}
+\begin{bullets}
+  \item Designed the helical gear transmission and fabricated a symmetric NACA-profile aluminium rudder (MAG welding).
+\end{bullets}
+\vspace{3pt}
+
+\entry{Turbo-Compressor Prototype --- R\&D Project}{}
+  {Ansys VistaCCD, Siemens Star-CCM+, 3D printing}{2025}
+\begin{bullets}
+  \item Designed a centrifugal compressor first stage analytically, validated it via symmetry-reduced CFD (3\% compression error achieved wrt the simulation), and 3D-printed a functional prototype.
+\end{bullets}
+
+\section{Technical Skills \& Languages}
+\begin{bullets}
+  \item \textbf{Languages:} Python, C++/CUDA, SQL
+  \item \textbf{ML \& Data:} PyTorch, scikit-learn, XGBoost/LightGBM/CatBoost, NumPy, Pandas, librosa, ONNX, quantization, pruning
+  \item \textbf{MLOps \& Tooling:} Hydra, Ray Tune, Optuna, Docker, FastAPI, Git, Linux, HuggingFace, MATLAB, Ansys
+  \item \textbf{Spoken:} French (native), Italian (C2), English (C1 --- TOEIC 990/990), German (B1/B2 --- self-taught)
+\end{bullets}
+
+\end{document}
