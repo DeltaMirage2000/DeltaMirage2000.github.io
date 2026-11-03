@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://mateo-496.github.io/al-folio/sitemap.xml
+Sitemap: https://mateo-496.github.io/sitemap.xml
