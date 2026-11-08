@@ -27,8 +27,6 @@ Each genome is turned into a bag of 31-mers: a window of 31 DNA bases slides alo
 
 An out-of-fold, calibrated mixture-of-experts ensemble of gradient boosting models (XGBoost, CatBoost, LightGBM).
 
-<!-- TODO: add 1-2 sentences on what you personally did, and your macro F1 on each private split (see report.pdf) -->
-
 Team: Adrien Saouma, Mateo Mangialomini, Maxime Tran.
 
 [Code](https://github.com/mateo-496/ecoli-amr-kaggle) · [Report (PDF)](https://github.com/mateo-496/ecoli-amr-kaggle/blob/main/report.pdf)

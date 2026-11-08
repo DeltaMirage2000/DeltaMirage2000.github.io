@@ -15,4 +15,3 @@ Hydrogadz is a student team building an electric boat for the Monaco Energy Boat
 - Designed the **helical gear transmission**.
 - Fabricated a symmetric **NACA-profile aluminium rudder**, welded with MAG welding.
 
-<!-- TODO: add a photo of the boat or the rudder, and the team's result at the event if you want to mention it -->

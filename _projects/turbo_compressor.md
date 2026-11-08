@@ -18,3 +18,5 @@ I designed the first stage of a centrifugal compressor analytically, then valida
 <iframe src="/assets/pdf/poster_pjt.pdf" width="100%" height="700"
         style="border:1px solid #888; border-radius:8px;"></iframe>
 <p><a href="/assets/pdf/poster_pjt.pdf">Open the PDF in a new tab</a></p>
+
+Team: Dorian Mandrino, Mateo Mangialomini, Alexandre Poncelet, Charny Xu.

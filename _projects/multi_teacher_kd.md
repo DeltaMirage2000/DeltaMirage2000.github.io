@@ -31,3 +31,5 @@ Sound event detection models are accurate but too large for low-power devices. T
 - Rewrote the inherited training pipeline (PyTorch, Hydra, Ray Tune/Optuna, ONNX) for scene classification and flyover detection. Removing unnecessary CPU-GPU synchronization calls made training **13% faster**.
 
 A first-author paper is in preparation.
+
+Team: Mateo Mangialomini, Émilien René.
