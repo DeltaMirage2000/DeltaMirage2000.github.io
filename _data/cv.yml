@@ -90,7 +90,7 @@ cv:
       - name: Turbo-Compressor Prototype, R&D project
         summary: "2025. Ansys VistaCCD, Siemens Star-CCM+, 3D printing."
         highlights:
-          - Designed a centrifugal compressor first stage analytically, validated it via symmetry-reduced CFD (3% compression error with respect to the simulation), and 3D-printed a functional prototype.
+          - Designed a centrifugal compressor first stage analytically, validated it via symmetry-reduced CFD (5.4% compression error with respect to the simulation), and 3D-printed a functional prototype.
     Skills:
       - name: Programming
         keywords: Python, C++/CUDA, SQL
