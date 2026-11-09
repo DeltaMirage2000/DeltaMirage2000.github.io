@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Predicting antibiotic resistance from genomes
+title: Dimentionnement du moteur Vulcain
 description: 3rd of 39 in the INF8245 Kaggle competition, with a calibrated gradient boosting ensemble
 importance: 2
-category: /ML
+category: /ingénierie ISAE-ENSMA
 related_publications: false
 ---
 

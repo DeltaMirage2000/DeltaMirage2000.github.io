@@ -1,9 +1,9 @@
 ---
 layout: page
-title: ESC-50 sound classification demo
+title: Conception sur plan d'un ULM
 description: A self-taught end-to-end deep learning project, deployed as a live web app
 importance: 3
-category: /ML
+category: /ingénierie ISAE-ENSMA
 related_publications: false
 ---
 
