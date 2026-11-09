@@ -2,15 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: M.Sc.A. candidate in ML/AI at <a href="https://www.polymtl.ca/">Polytechnique Montréal</a> × <a href="https://www.atelier7hz.com/wp/en/">Atelier7Hz</a>
+subtitle: Étudiant ingénieur en double diplôme <a href="https://artsetmetiers.fr/fr/">Arts et Métiers</a> × <a href="https://www.ensma.fr/">ISAE-ENSMA</a>
 
 profile:
   align: right
   image: profilepicture.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Montréal, QC, Canada</p>
-    <p>Cannes, France</p>
+    <p>Poitiers, France</p>
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -22,20 +21,14 @@ latest_posts:
   enabled: false
 ---
 
-I'm a Master's student in ML/AI at Polytechnique Montréal, in a double degree with Arts et Métiers ParisTech (mechanical, electrical and industrial engineering).
+Je suis un étudiant ingénieur en double diplôme avec Arts et Métier Paristech et l'ISAE ENSMA
 
-My research, done with Atelier7Hz, focuses on making audio models small and fast enough to run on edge devices such as a Raspberry Pi. I work on multi-teacher knowledge distillation for sound event detection, urban acoustic scene classification and aircraft flyover detection, pruning and quantization and also on data augmentation (image and sound).
-
-Before getting into Machine Learning and Deep Learning, I trained as a mechanical engineer: I’ve machined, cast and welded parts, run CFD, built a 3D-printed compressor prototype and made parts for an electric racing boat.
-
-I'm looking for an AI/ML internship starting in Summer 2027 and one for the Fall 2027 (available in Canada, US, Switzerland, Germany, Luxembourg). 
-
-I speak French (native), Italian (C2), English (C1) and German (B1/B2).
+Je suis à la recherche d'un stage de fin d'étude dans les secteurs de l'aéronautique ou la défense à partir d'avril 2027 dans la zone Poiters-Chatellerault ou la région PACA.
 
 
 
 
-See my projects, or get in touch below.
+Jetez un coup d'oeil à mes projets, ou contactez moi via les réseaux ci-dessous
 <style>
   .social .contact-icons { font-size: 1.75rem !important; }
   .social .contact-note { font-size: 0.85rem; }
