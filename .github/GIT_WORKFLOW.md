@@ -45,3 +45,4 @@ chore: Update Jekyll dependencies with bundle update --all
 - OS-specific files (`.DS_store`)
 - Editor temporary files (`.idea/`, `.swp`, `.swo`)
 - Secrets and API keys (never commit credentials)
+
