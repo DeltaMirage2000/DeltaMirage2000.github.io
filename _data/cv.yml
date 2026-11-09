@@ -1,109 +1,97 @@
 cv:
-  name: Mateo Mangialomini
-  label: M.Sc.A. Candidate in ML/AI, Polytechnique Montréal
-  email: mateo496 [at] protonmail [.] com
-  location: Montréal, QC, Canada
+  name: Dorian Mandrino
+  label: Étudiant ingénieur en double diplôme ISAE-ENSMA & Arts et Métiers ParisTech
+  email: dorian.mandrino@gmail.com
+  phone: "+33766222544"
+  location: Poitiers, France
   summary: >-
-    Master's student working on efficient audio ML for edge devices, with an
-    engineering background in mechanics and CFD.
+    À la recherche d'un stage de fin d'études pour avril 2027.
   social_networks:
-    - network: GitHub
-      username: mateo-496
     - network: LinkedIn
-      username: mateomangialomini
+      username: dorian-mandrino-18ab85296
   sections:
     Education:
-      - institution: Polytechnique Montréal
-        area: Machine Learning and Artificial Intelligence
-        studyType: M.Sc.A.
-        location: Montréal, Canada
+      - institution: ISAE-ENSMA Poitiers
+        area: Ingénierie aéronautique
+        studyType: Diplôme d'ingénieur
+        location: Poitiers, France
         start_date: 2025-09
-        end_date: 2027-04
+        end_date: 2027-09
         highlights:
-          - "Thesis: Multi-teacher knowledge distillation for edge audio classification"
-          - "Coursework: Deep Learning (A. Courville, Mila) A*, Probabilistic ML (C. Pal) A*, Machine Learning A"
-      - institution: Arts et Métiers ParisTech
-        area: Mechanical, Electrical & Industrial Engineering
-        studyType: Engineering degree
-        location: France
+          - "Enseignements clés : conception mécanique, transferts thermiques, aérodynamique, systèmes embarqués, science des matériaux, systèmes propulsifs, simulation numérique"
+      - institution: Arts et Métiers Aix-en-Provence
+        area: Ingénierie mécanique et industrielle
+        studyType: Diplôme d'ingénieur
+        location: Aix-en-Provence, France
         start_date: 2023-09
-        end_date: 2027-03
+        end_date: 2025-06
         highlights:
-          - Top French engineering school. Class rank 2nd / 1149.
-          - "Coursework: Solid Mechanics, Fluid Mechanics, Vibration & Dynamics, Computational Engineering, AI; hands-on machining, casting and welding"
-      - institution: Lycée Masséna
-        area: CPGE (preparatory classes), mathematics & physics
+          - "Enseignements clés : dimensionnement et conception mécanique, comportement plastique et rupture, matériaux et traitements thermiques/chimiques, simulation éléments finis, électrotechnique, systèmes asservis, procédés de fabrication, tolérancement géométrique"
+      - institution: Lycée Les Eucalyptus
+        area: Classes préparatoires, filière PTSI / PT* (Physique et Technologie)
         location: Nice, France
         start_date: 2021-09
         end_date: 2023-06
         highlights:
-          - Intensive mathematics and physics for Grandes Écoles entrance exams.
-      - institution: Lycée International de Valbonne (CIV)
-        area: Baccalauréat, mathematics & physics, international curriculum in Italian
-        studyType: High Honors
-        location: Valbonne, France
-        start_date: 2018-09
-        end_date: 2021-06
+          - "Projet d'étude (TIPE) : absorbeur dynamique de vibrations en mécanique des structures"
     Experience:
-      - company: Polytechnique Montréal × Atelier7Hz
-        position: Graduate Researcher, multi-teacher knowledge distillation for edge sound event detection
-        location: Montréal, Canada
-        start_date: 2026-01
-        end_date: present
+      - company: École Polytechnique de Turin
+        position: Stage recherche
+        location: Turin, Italie
+        start_date: 2026-05
+        end_date: 2026-08
         highlights:
-          - Built a teacher ensemble surpassing state-of-the-art on FSD50K (+0.4 pts mAP) with 93.7% fewer parameters.
-          - Authored a novel KD method that distills BEATs, PaSST, AST and MobileNetV3 into an EfficientAT student reaching 67.05 mAP, above every teacher (all below 65.3). First-author paper in preparation.
-          - Mapped the accuracy-compute Pareto front across pruning, INT8 quantization and combined schemes to select operating points for Raspberry Pi 4B deployment.
-          - Wrote custom C++/CUDA kernels for mel-spectrogram computation with shared-memory 2D tiling, a 2x speedup over torchaudio on an NVIDIA RTX 5090 during training.
-          - Rewrote the inherited training pipeline (PyTorch, Hydra, Ray Tune/Optuna, ONNX) for scene classification and flyover detection, speeding up training by 13% by removing unnecessary CPU-GPU synchronization calls.
-      - company: Airbus Helicopters, Prototype Department
-        position: Intern, Shop Floor
+          - Caractérisation mécanique d'une structure TPMS multimatériaux (gyroïde) imprimée en 3D pour l'absorption d'énergie à l'impact.
+          - Simulations numériques sous LS-Dyna.
+      - company: Airbus Helicopters, département prototypes
+        position: Stage ouvrier
         location: Marignane, France
         start_date: 2024-06
         end_date: 2024-07
-      - company: MANE, Flavor & Fragrance Manufacturer
-        position: Technical Maintenance Worker
-        location: Le Bar-sur-Loup, France
-        start_date: 2023-07
-        end_date: 2023-08
-    Volunteer:
-      - company: PolyAI, Polytechnique Montréal AI student association
-        position: Competitions Department (Gestionnaire)
-        location: Montréal, Canada
-        start_date: 2026-03-01
-        summary: Since March 2026.
         highlights:
-          - Coordinate ML competition training and compete in hackathons. Event staff at CodeML, Polytechnique's ML hackathon.
+          - Préparation des appareils lors d'essais sol ou vol.
+          - Entretien du matériel, fabrication de pièces en atelier, méthodologie 5S.
     Projects:
-      - name: ESC-50 Environmental Sound Classification
-        summary: "2026. PyTorch, librosa, FastAPI, Docker, HuggingFace Spaces."
+      - name: Projet Junior Entreprise, conception et fabrication d'un drone lourd
+        summary: "2026."
         highlights:
-          - Self-taught end-to-end project. Extended the Salamon & Bello (2017) CNN from 10 to 50 classes while maintaining accuracy, and deployed it as a FastAPI + Docker endpoint with a real-time web UI.
-      - name: Kaggle Competition, 3rd / 39
-        summary: "2025. XGBoost, CatBoost, LightGBM."
+          - "Projet R&D : adaptation d'un moteur brushless à un drone porteur lourd quadrimoteur (1,5 m d'envergure) pour le compte d'un industriel."
+      - name: Association Aéromodélisme & Électronique ISAE-ENSMA
+        summary: "2025-2026."
         highlights:
-          - Predicted E. coli antibiotic resistance from 1M-dimensional sparse genomic features under class imbalance and phylogenetic distribution shift, using an out-of-fold calibrated mixture-of-experts gradient boosting ensemble.
-      - name: Hydrogadz, Monaco Energy Boat Challenge 2025
-        summary: "2025. Student association building an electric boat."
+          - Fabrication de drones racer FPV, conception et fabrication d'un drone de grande taille pour le compte d'un industriel.
+      - name: Conception d'un micro turboréacteur
+        summary: "2025. StarCCM+."
         highlights:
-          - Designed the helical gear transmission and fabricated a symmetric NACA-profile aluminium rudder (MAG welding).
-      - name: Turbo-Compressor Prototype, R&D project
-        summary: "2025. Ansys VistaCCD, Siemens Star-CCM+, 3D printing."
+          - "Projet R&D : conception complète et dimensionnement du compresseur (centrifuge 1 étage), simulations numériques StarCCM+."
+      - name: Gestion de l'infrastructure réseau d'une résidence étudiante
+        summary: "2024-2025."
         highlights:
-          - Designed a centrifugal compressor first stage analytically, validated it via symmetry-reduced CFD (5.4% compression error with respect to the simulation), and 3D-printed a functional prototype.
+          - Administration d'un ERP dédié aux activités étudiantes ainsi que de l'infrastructure réseau.
+          - Gestion opérationnelle et technique d'un réseau de paiement cashless lors des grands galas de l'école.
     Skills:
-      - name: Programming
-        keywords: Python, C++/CUDA, SQL
-      - name: ML & Data
-        keywords: PyTorch, scikit-learn, XGBoost/LightGBM/CatBoost, NumPy, Pandas, librosa, ONNX, quantization, pruning
-      - name: MLOps & Tooling
-        keywords: Hydra, Ray Tune, Optuna, Docker, FastAPI, Git, Linux, HuggingFace, MATLAB, Ansys
+      - name: CAO & FAO
+        keywords: Catia V5, 3DExperience, SolidWorks, Creo, FreeCAD, Fusion360 (CAO + usinage), Slicer impression 3D
+      - name: Simulation & Calcul
+        keywords: Abaqus, Simulink, StarCCM+, LS-Dyna, QuickCAST
+      - name: Programmation & Réseau
+        keywords: Python, Ada, SQL, Linux, Docker, cloud personnel, services autohébergés
+      - name: Bureautique
+        keywords: Suite Microsoft Office, Suite Google
     Languages:
-      - name: French
-        summary: Native
-      - name: Italian
-        summary: C2
-      - name: English
-        summary: C1 (TOEIC 990/990)
-      - name: German
-        summary: B1/B2 (self-taught)
+      - name: Français
+        summary: Langue maternelle
+      - name: Anglais
+        summary: C1, expérimenté / autonome (TOEIC 950/990). Pratique fréquente orale/écrite
+    Hobbies:
+      - name: Aviation
+        summary: Pilote d'avions légers, titulaire de la licence ULM multiaxe
+      - name: Simulation
+        summary: Simulation de vol militaire (DCS)
+      - name: Drones
+        summary: Fabrication et pilotage de drones FPV
+      - name: Impression 3D
+        summary: Amateur/prosumer
+    Vehicle:
+      - name: Permis B
+        summary: Titulaire

@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Multi-teacher distillation for edge audio
-description: Confidence-weighted knowledge distillation for sound event detection on a Raspberry Pi
+title: Serveur NAS d'auto-hébergement
+description: Utilisation d'un raspberry pi5 et de SSD/HDD de récupération pour créer un NAS DIY visant à auto-héberger certains services cloud
 importance: 1
-category: /research
+category: /perso
 related_publications: false
 ---
 

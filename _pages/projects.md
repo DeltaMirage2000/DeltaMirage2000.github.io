@@ -5,7 +5,7 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 2
-display_categories: [/research, /ML, /engineering, /business]
+display_categories: [/research, /ingénierie ISAE-ENSMA, /ingénierie Arts et Métiers, /business, /perso]
 horizontal: false
 ---
 

@@ -1,35 +1,35 @@
 ---
 layout: page
-title: Turbo-compressor prototype
-description: Centrifugal compressor for a model jet engine, from analytical design and CFD to a 3D-printed test rig
+title: Prototype de turbocompresseur
+description: Compresseur centrifuge pour un microréacteur aéronautique, de la conception analytique et CFD au banc d'essai imprimé en 3D
 importance: 1
-category: /engineering
+category: /ingénierie Arts et Métiers
 related_publications: false
 ---
 
-A two-semester team project to design, simulate, build and test the centrifugal compressor of a miniature (RC-scale) turbojet, then start sizing the combustion chamber that sits behind it.
+Projet d'équipe sur deux semestres visant à concevoir, simuler, fabriquer et tester le compresseur centrifuge d'un turboréacteur miniature (échelle RC), puis à amorcer le dimensionnement de la chambre de combustion associée.
 
-- **Context:** R&D project (PJT), Arts et Métiers ParisTech, Aix-en-Provence, 2024–2025. Supervised by C. Faillat and P. Véron.
-- **Tools:** Vista CCD (PCA Engineers), 3DExperience/CATIA, Siemens Star-CCM+, Abaqus, FDM 3D printing, Arduino.
-- **Results:** CFD outlet pressure of **3.31 bar** against a **3.5 bar** design target; a working printed prototype that built **0.15–0.18 bar** at about **21,600 rpm** on the test bench, in line with the expected quadratic trend.
+- **Contexte :** Projet de R&D (PJT), Arts et Métiers ParisTech, Aix-en-Provence, 2024–2025. Encadré par C. Faillat et P. Véron.
+- **Outils :** Vista CCD (PCA Engineers), 3DExperience/CATIA, Siemens Star-CCM+, Abaqus, impression 3D FDM, Arduino.
+- **Résultats :** Pression de sortie en CFD de **3,31 bar** pour un objectif de **3,5 bar** ; prototype imprimé fonctionnel ayant atteint **0,15–0,18 bar** à environ **21 600 tr/min** sur banc d'essai, en accord avec la tendance quadratique attendue.
 
 <div class="row mt-3">
     <div class="col-sm-7 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-assembly-open.jpg" title="Printed prototype" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-assembly-open.jpg" title="Prototype imprimé" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-rotor-stator.jpg" title="Rotor and stator CAD" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-rotor-stator.jpg" title="CAO du rotor et du stator" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: the assembled prototype, with the motor mount, rotor, stator and outer casing. Right: the rotor (teal) inside the diffuser stator (red), as designed.
+    À gauche : le prototype assemblé, avec le support moteur, le rotor, le stator et le carter extérieur. À droite : le rotor (vert) à l'intérieur du stator de diffusion (rouge), tel que conçu.
 </div>
 
-## 1. Design specification
+## 1. Cahier des charges
 
-The previous year's team had chosen an axial compressor, copied from fighter-jet engines. At RC scale, a single centrifugal stage is the standard choice, so we restarted from a benchmark of commercial micro-turbojets (JetCat P100-RX, P160 RXi-B and P300-PRO). Their pressure ratios range from 2.9 to 3.55, with peak speeds of 105,000–154,000 rpm.
+L'équipe de l'année précédente avait choisi un compresseur axial, copié sur les moteurs d'avions de chasse. À l'échelle RC, un unique étage centrifuge constitue le choix standard ; nous sommes donc repartis d'une analyse comparative de microréacteurs commerciaux (JetCat P100-RX, P160 RXi-B et P300-PRO). Leurs taux de compression varient de 2,9 à 3,55, pour des régimes maximaux de 105 000 à 154 000 tr/min.
 
-A dimensional analysis (Vaschy-Buckingham) reduced the six governing quantities (diameter, length, speed, mass flow, inlet and outlet pressure) to four dimensionless groups:
+Une analyse dimensionnelle (Vaschy-Buckingham) a réduit les six grandeurs régissantes (diamètre, longueur, vitesse, débit massique, pressions d'entrée et de sortie) à quatre groupes sans dimension :
 
 $$
 \pi_1 = \frac{P_s}{P_e}, \qquad
@@ -38,201 +38,202 @@ $$
 \pi_4 = \gamma
 $$
 
-Their values across the benchmark were consistent, so we scaled from the **JetCat P300-PRO**: a pressure ratio of **3.5**, a mass flow of **0.5 kg/s** and a speed of **105,000 rpm**.
+Leurs valeurs s'étant avérées cohérentes à travers l'étude comparative, nous avons dimensionné notre modèle à partir du **JetCat P300-PRO** : un taux de compression de **3,5**, un débit massique de **0,5 kg/s** et une vitesse de **105 000 tr/min**.
 
-## 2. Rotor and stator design
+## 2. Conception du rotor et du stator
 
-The impeller geometry came from Vista CCD, a meanline design tool by PCA Engineers, using design rules from the IMechE literature:
+La géométrie de la roue provient de Vista CCD, un outil de conception par ligne moyenne de PCA Engineers, s'appuyant sur les règles de l'art de la littérature IMechE :
 
-- **Inlet blade angle** $\beta_1 = 60°$, the optimum for maximum mass flow near Mach 0.55, rather than 80° for a static compressor, since the engine is meant to fly.
-- **10° backsweep** at the trailing edge, which delays surge. The benchmark engines use the same value.
-- **7 main blades and 7 splitter blades**, 2 mm thick, limited by what a 5-axis ball-end mill could machine at this scale. 1.5 mm fillets match a 1.5 mm ball-end tool.
-- **20 mm hub** for the shaft, 0.1 mm tip clearance and an axial length of half the diameter, giving an **86 mm** rotor.
+- **Angle de pale à l'entrée** $\beta_1 = 60°$, optimal pour un débit massique maximal proche de Mach 0,55, plutôt que 80° pour un compresseur fixe, le moteur étant destiné à voler.
+- **10° d'inclinaison vers l'arrière** (*backsweep*) au bord de fuite, ce qui retarde le pompage. Les moteurs de référence utilisent la même valeur.
+- **7 pales principales et 7 pales intermédiaires** (*splitters*), d'une épaisseur de 2 mm, limitée par les capacités d'usinage d'une fraise sphérique 5 axes à cette échelle. Des congés de 1,5 mm correspondent à un outil sphérique de 1,5 mm.
+- **Moyeu de 20 mm** pour l'arbre, jeu en pointe de 0,1 mm et longueur axiale égale à la moitié du diamètre, soit un rotor de **86 mm**.
 
-Because printing cannot hold a 0.1 mm tip gap, the printed version has a shroud built into the rotor.
+L'impression 3D ne permettant pas de garantir un jeu de 0,1 mm en pointe, la version imprimée intègre un flasque (*shroud*) directement sur le rotor.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/turbo-rotor-cad.jpg" title="Rotor" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-rotor-shroud.jpg" title="Shrouded rotor" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-rotor-shroud.jpg" title="Rotor flasqué" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/projects/turbo-stator-cad.jpg" title="Stator" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    The open impeller with splitter blades, the shrouded version for printing, and the 20-vane diffuser stator (3DExperience).
+    La roue ouverte avec pales intermédiaires, la version flasquée pour l'impression, et le stator de diffusion à 20 aubes (3DExperience).
 </div>
 
-The **stator** turns the swirling flow leaving the rotor back towards the axis. Its 20 guide vanes were set from the outlet velocity triangle at 100,000 rpm, assuming constant mass flow, no losses and flow that follows the blades:
+Le **stator** redresse l'écoulement issu du rotor pour l'aligner vers l'axe et transformer la vitesse tangeantielle du fluide en pression statique tout en minimisant les pertes de pression totale. Ses 20 aubes directrices ont été définies à partir du triangle des vitesses de sortie à 100 000 tr/min, en supposant un débit massique constant, l'absence de pertes et un écoulement suivant les pales :
 
 $$
-U_2 = R_{ext}\,\omega = 0.043 \times 100\,000 \times \tfrac{2\pi}{60} \approx 451~\text{m/s}
+U_2 = R_{ext}\,\omega = 0{,}043 \times 100\,000 \times \tfrac{2\pi}{60} \approx 451~\text{m/s}
 $$
 
 $$
 C_r = \frac{\dot m}{\rho\, S_{out}} \approx 90~\text{m/s}, \qquad
-C_2 = \sqrt{C_r^2 + \left(U_2 - C_r \sin 10°\right)^2} \approx 444~\text{m/s}, \qquad
-\alpha = \arctan\frac{C_r}{C_2} \approx 11.5°
+- C_2 = \sqrt{C_r^2 + \left(U_2C_r 
+\sin 10°\right)^2} \approx 444~\text{m/s}, \qquad
+\alpha = \arctan\frac{C_r}{C_2} \approx 11{,}5°
 $$
 
-The stator's flow area was kept constant along the passage as the radius changes.
+La section de passage du stator a été maintenue constante le long du canal malgré la variation du rayon.
 
-## 3. CFD validation (Star-CCM+)
+## 3. Validation CFD (Star-CCM+)
 
-To keep the computation tractable, we simulated **a single blade passage** and used rotational symmetry for the rest. The air volume between two blades was extracted with a Boolean operation, then meshed and solved at the design point:
+Afin de maintenir un temps de calcul raisonnable, nous avons simulé **un seul canal inter-pale** en appliquant une symétrie de révolution pour le reste. Le volume d'air entre deux pales a été extrait par une opération booléenne, puis maillé et résolu au point nominal :
 
-- **Boundary conditions:** stagnation inlet at 1 bar (air at rest), pressure outlet.
-- **Physics:** steady, coupled, ideal gas, **k-ω SST** turbulence (k-ε is unsuited to this flow).
-- **Mesh:** polyhedral cells with a 0.2 mm base size and prism layers in the boundary layer, keeping **$y^+ < 5$** over almost all walls. Coarser 1 mm and 0.5 mm meshes diverged. 500 iterations took about 3 hours.
+- **Conditions aux limites :** entrée d'arrêt à 1 bar (air au repos), sortie en pression.
+- **Physique :** stationnaire, couplée, gaz parfait, turbulence **k-ω SST** (le modèle k-ε étant inadapté à ce type d'écoulement).
+- **Maillage :** cellules polyédriques avec une taille de base de 0,2 mm et des couches limites prismatiques, maintenant un **$y^+ < 5$** sur la quasi-totalité des parois. Des maillages plus grossiers de 1 mm et 0,5 mm divergeaient. 500 itérations ont nécessité environ 3 heures.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-mesh.jpg" title="Prism-layer mesh" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-mesh.jpg" title="Maillage en couches prismatiques" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-velocity.jpg" title="Velocity magnitude" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-velocity.jpg" title="Module de vitesse" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-pressure.jpg" title="Total pressure" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-cfd-pressure.jpg" title="Pression totale" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    One blade passage: the boundary-layer mesh, the velocity field (rising radially to the outlet) and the total pressure field.
+    Un canal inter-pale : le maillage de couche limite, le champ de vitesse (augmentant radialement vers la sortie) et le champ de pression totale.
 </div>
 
-The mean outlet pressure converged to **3.31 bar** for a 3.5 bar target, about 5% low. The mean outlet velocity was 581 m/s. Residuals stalled between $10^{-1}$ and $10^{-2}$, short of the usual target, but they no longer diverged. The mesh met Star-CCM+'s skewness and volume-change criteria, so we treated the result as a reasonable first validation of the design.
+La pression de sortie moyenne a convergé vers **3,31 bar** pour un objectif de 3,5 bar, soit environ 5 % de moins. La vitesse de sortie moyenne s'est établie à 581 m/s. Les résidus ont stagné entre $10^{-1}$ et $10^{-2}$, en deçà de l'objectif habituel, sans pour autant diverger. Le maillage respectant les critères de gauchissement et de variation de volume de Star-CCM+, nous avons retenu ce résultat comme une première validation raisonnable de la conception.
 
-## 4. Structural check (Abaqus)
+## 4. Vérification structurelle (Abaqus)
 
-We also modelled a quarter of an aluminium rotor in Abaqus, under the 3.5 bar internal pressure and centrifugal loading. We ran 11 cases from 1,000 to 100,000 rpm. The stress grew linearly with speed, but peaked at only 0.016 MPa. A hand calculation shows this cannot be right: 10 g of blade at $r = 43$ mm and 100,000 rpm gives
+Nous avons également modélisé un quart de rotor en aluminium sous Abaqus, soumis à une pression interne de 3,5 bar et à un chargement centrifuge. Nous avons simulé 11 cas de 1 000 à 100 000 tr/min. Les contraintes et déformations ont évolués linéairement avec la vitesse, pour culminer à seulement 0,016 MPa. Un calcul analytique manuel montre l'impossibilité de ce résultat : 10 g de pale à $r = 43$ mm et 100 000 tr/min donnent
 
 $$
-F = m\,\omega^2 r \approx 0.01 \times (10\,472)^2 \times 0.043 \approx 47~\text{kN}
+F = m\,\omega^2 r \approx 0{,}01 \times (10\,472)^2 \times 0{,}043 \approx 47~\text{kN}
 $$
 
-which is about 470 MPa on a 10 mm² section, beyond the yield strength of most aluminium alloys. We concluded that the load or unit setup in Abaqus was wrong, and listed this as an open issue rather than a result.
+ce qui représente environ 470 MPa sur une section de 10 mm², bien au-delà de la limite d'élasticité de la plupart des alliages d'aluminium. Nous en avons conclu que le chargement ou le paramétrage des unités sous Abaqus était erroné, constituant un point ouvert à corriger plutôt qu'un résultat valide.
 
 <div class="row mt-3">
     <div class="col-sm-8 mt-3 mt-md-0 mx-auto">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-abaqus.jpg" title="Abaqus quarter-rotor model" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-abaqus.jpg" title="Modèle du quart de rotor sous Abaqus" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Von Mises stress on the quarter-rotor model. The near-uniform, tiny stresses pointed to a setup error.
+    Contrainte de von Mises sur le modèle du quart de rotor. Les valeurs quasi uniformes et infimes ont mis en évidence une erreur de paramétrage.
 </div>
 
-## 5. Prototype and test bench
+## 5. Prototype et banc d'essai
 
-The rotor, stator, casing and motor mount were printed in PLA, and the parts in contact were sanded to close the gaps and smooth the airflow. Several parts had to be reprinted because the printed tolerances drifted from the CAD.
+Le stator, le carter et le support moteur ont été imprimés en PLA. Le rotor a été obtenu par impression résine, garantissant une meilleur précision dimentionnelle et résistance mécanique comparé à l'impression FDM (ender 3v2). Les surfaces en contact ont été poncées pour réduire les jeux et lisser l'écoulement d'air. Plusieurs pièces ont dû être réimprimées en raison de dérives des tolérances d'impression par rapport à la CAO.
 
-- **Shaft:** a machined steel shaft was drawn and quoted, but for lack of workshop time an **M8×85 screw** replaced it. Boring the rotor for the screw added a lot of imbalance.
-- **Guidance:** a 20×8×7 bearing seated against its shoulder keeps the rotor clear of the casing. A second bearing seat was added at the rotor inlet for proper guidance.
-- **Coupling:** a flexible **TPU** coupler threads onto the M8 shaft and the M5 motor shaft.
-- **Casing:** a cylindrical shell closes the stage and channels the air into a rear plenum, where the pressure tap sits.
+- **Arbre :** un arbre en acier usiné avait été dessiné et chiffré, mais par manque de temps d'atelier, une **vis M8×85** l'a remplacé. L'alésage du rotor pour cette vis a généré un important déséquilibrage.
+- **Guidage :** un roulement 20×8×7 calé contre son épaulement maintient le rotor à distance du carter. Un second logement de roulement a été ajouté à l'entrée du rotor pour assurer un bon guidage.
+- **Accouplement :** un manchon souple en **TPU** se visse sur l'arbre M8 et l'arbre moteur M5.
+- **Carter :** une enveloppe cylindrique ferme l'étage et canalise l'air vers un plenum arrière, où se situe la prise de pression.
 
 <div class="row mt-3">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-printed-parts.jpg" title="Printed stator and rotor" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-printed-parts.jpg" title="Stator et rotor imprimés" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-assembly.jpg" title="Closed assembly" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-assembly.jpg" title="Assemblage fermé" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: the printed stator and shrouded rotor. Right: the assembly with the motor and ESC mounted above the rotor.
+    À gauche : le stator et le rotor flasqué imprimés. À droite : l'assemblage avec le moteur et le variateur (ESC) montés au-dessus du rotor.
 </div>
 
-**Drive.** An iFlight XING-E Pro 2207 1800KV brushless motor runs from a LiPo through a Hobbywing XRotor 45A ESC. An Arduino reads a potentiometer and outputs the PWM command. The power estimate showed that this motor cannot reach the 100,000 rpm design point, so the bench was always meant to test at reduced speed. Speed is estimated from the command:
+**Entraînement.** Un moteur brushless iFlight XING-E Pro 2207 1800KV est alimenté par une batterie LiPo via un variateur Hobbywing XRotor 45A. Une carte Arduino lit un potentiomètre et génère la commande PWM. L'estimation de puissance a montré que ce moteur ne peut atteindre le régime nominal de 100 000 tr/min ; le banc était donc destiné dès l'origine à des tests à vitesse réduite. La vitesse est estimée à partir de la consigne :
 
 $$
 \text{RPM} = \frac{\text{PWM} - 1000}{1000} \times V_{bat} \times K_V, \qquad \text{PWM} \in [1000, 2000]
 $$
 
-**Measurement.** An MPX700DP differential pressure sensor with an op-amp stage feeds the Arduino. It was calibrated from 0 to 3 bar against the manometer of the lab's air compressor and stayed within 5% of the reference.
+**Mesure.** Un capteur de pression différentielle MPX700DP associé à un étage d'amplification opérationnel transmet les données à l'Arduino. Il a été étalonné de 0 à 3 bar face au manomètre du compresseur du laboratoire, restant dans une marge de 5 % par rapport à la référence.
 
 <div class="row mt-3">
     <div class="col-sm-7 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-bench.jpg" title="Test setup" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-bench.jpg" title="Montage d'essai" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-wiring.jpg" title="Motor wiring" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-wiring.jpg" title="Câblage moteur" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Left: the test setup, with the sensor board, Arduino and compressor. Right: wiring of the LiPo, ESC, motor and Arduino with its speed potentiometer.
+    À gauche : le banc d'essai avec la carte de mesure, l'Arduino et le compresseur. À droite : le câblage de la LiPo, du variateur, du moteur et de l'Arduino avec son potentiomètre de vitesse.
 </div>
 
-## 6. Test results
+## 6. Résultats d'essai
 
-Each test point holds a fixed speed command and records the pressure rise. We ran **three series from 0 to 21,600 rpm**. Above that, vibration from the unbalanced rotor risked breaking the parts.
+Chaque point de mesure correspond à une consigne de vitesse stabilisée pour enregistrer l'élévation de pression. Nous avons réalisé **trois séries de 0 à 21 600 tr/min**. Au-delà, les vibrations dues au déséquilibre du rotor risquaient de détruire les pièces.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-measured.png" title="Measured pressure rise" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-measured.png" title="Élévation de pression mesurée" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Pressure rise against estimated rotor speed for the three runs, after zero-offset correction. The dashed line is a quadratic through zero and the 3.5 bar, 100,000 rpm design point.
+    Élévation de pression en fonction de la vitesse estimée du rotor pour les trois essais, après correction du décalage de zéro. La ligne pointillée représente une parabole passant par l'origine et le point nominal (3,5 bar à 100 000 tr/min).
 </div>
 
-All three runs show real compression, reaching 0.15–0.18 bar at the top speed, and they follow the expected $\Delta P \propto N^2$ trend closely. The tested range is still only the first fifth of the design speed, so this supports the design without proving the 3.5 bar target.
+Les trois séries confirment une réelle compression, atteignant 0,15–0,18 bar à vitesse maximale, et suivent fidèlement la tendance quadratique attendue $\Delta P \propto N^2$. La plage testée ne représentant que le premier cinquième de la vitesse nominale, cela conforte la conception sans pour autant valider l'objectif des 3,5 bar.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-extrapolation.png" title="Tested range vs design point" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-test-extrapolation.png" title="Plage testée vs point nominal" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    The same data on the full speed range: the tests cover the shaded region; the design point lies far beyond it.
+    Les mêmes données sur toute la plage de vitesse : les essais couvrent la zone ombragée, tandis que le point nominal se situe bien au-delà.
 </div>
 
-## 7. Next stage: combustion chamber
+## 7. Prochaine étape : chambre de combustion
 
-With the compressor sized, we started the combustion chamber using the **Melconian and Modak** procedure. We chose an **annular** chamber, since the shaft runs through the engine's centre and can-type chambers would be too small at this scale. From the compressor's 0.5 kg/s and an assumed pattern factor of 0.25:
+Une fois le compresseur dimensionné, nous avons amorcé l'étude de la chambre de combustion selon la **méthode de Melconian et Modak**. Nous avons opté pour une structure **annulaire**, l'arbre traversant le centre du moteur rendant des chambres individuelles (*can-type*) trop exigües à cette échelle. À partir du débit de 0,5 kg/s du compresseur et d'un facteur de répartition (*pattern factor*) estimé à 0,25 :
 
-| Quantity | Value |
+| Quantité | Valeur |
 |---|---|
-| Reference area $A_{ref}$ | 0.0128 m² |
-| Casing diameters (outer / inner) | 130 mm / 24 mm |
-| Liner diameters (outer / inner) | 112 mm / 42 mm |
-| Reference velocity $U_{ref}$ | 21.6 m/s (Mach 0.31) |
-| Liner length $L_L$ | 117 mm |
-| Primary / secondary / dilution zones | 26 / 17.5 / 60 mm |
+| Section de référence $A_{ref}$ | 0,0128 m² |
+| Diamètres du carter (externe / interne) | 130 mm / 24 mm |
+| Diamètres de la tube à flamme (externe / interne) | 112 mm / 42 mm |
+| Vitesse de référence $U_{ref}$ | 21,6 m/s (Mach 0,31) |
+| Longueur de la tube à flamme $L_L$ | 117 mm |
+| Zones primaire / secondaire / dilution | 26 / 17,5 / 60 mm |
 
 <div class="row mt-3">
     <div class="col-sm-5 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-schematic.jpg" title="Combustor airflow" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-schematic.jpg" title="Écoulement dans la chambre" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-cad.jpg" title="Liner CAD" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-combustor-cad.jpg" title="CAO de la tube à flamme" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-3 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-engine-cad.jpg" title="Compressor and combustor" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/projects/turbo-engine-cad.jpg" title="Compresseur et chambre de combustion" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Airflow split through the primary, secondary and dilution zones; first CAD of the perforated liner; and the compressor stacked on the combustion chamber.
+    Répartition du débit d'air dans les zones primaire, secondaire et de dilution ; première CAO de la tube à flamme perforée ; et assemblage du compresseur sur la chambre de combustion.
 </div>
 
-Fuel injection and the turbine were left open, since both depend on measured compressor outlet conditions that only a metal prototype could provide.
+L'injection de carburant et la turbine n'ont pas été arrêtées, ces deux éléments dépendant des conditions de sortie du compresseur mesurées sur un prototype métallique.
 
-## Lessons and next steps
+## Bilan et perspectives
 
-- **Balance the rotor first.** Imbalance, not motor power, capped the tests at about 22,000 rpm. A machined shaft and a balanced rotor are the prerequisites for going faster.
-- **Build a metal version.** A machined aluminium rotor would allow testing near the design speed. The shaft drawing and stock quotes are ready.
-- **Better instrumentation:** an optical tachometer instead of estimating speed from PWM, and temperature sensors for efficiency.
-- **Fix the structural model** and validate it against the hand estimate before trusting it.
+- **Équilibrer le rotor en premier.** Le balourd, et non la puissance du moteur, a limité les essais à environ 22 000 tr/min. Un arbre usiné et un rotor équilibré constituent les prérequis indispensables pour monter en régime.
+- **Réaliser une version métallique.** Un rotor usiné en aluminium permettrait de réaliser des essais proches de la vitesse nominale. Le plan de l'arbre et les devis de matière sont prêts.
+- **Améliorer l'instrumentation :** intégrer un tachymètre optique à la place de l'estimation par la commande PWM, ainsi que des capteurs de température pour évaluer le rendement.
+- **Corriger le modèle structurel** et le valider par rapport à l'estimation analytique avant de l'exploiter.
 
 ## Documents
 
 - [Poster (PDF)](/assets/pdf/poster_pjt.pdf)
-- [Final presentation slides (PDF)](/assets/pdf/sountenance_pjt.pdf)
+- [Diapositives de soutenance (PDF)](/assets/pdf/sountenance_pjt.pdf)
 
 <iframe src="/assets/pdf/poster_pjt.pdf" width="100%" height="700"
         style="border:1px solid #888; border-radius:8px;"></iframe>
-<p><a href="/assets/pdf/poster_pjt.pdf">Open the PDF in a new tab</a></p>
+<p><a href="/assets/pdf/poster_pjt.pdf">Ouvrir le PDF dans un nouvel onglet</a></p>
 
-Team: Dorian Mandrino, Mateo Mangialomini, Alexandre Poncelet, Charny Xu (with T. Lhote and G. Rique in the first semester).
+Équipe : Dorian Mandrino, Mateo Mangialomini, Alexandre Poncelet, Charny Xu (avec T. Lhote et G. Rique au premier semestre).
